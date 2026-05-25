@@ -1,6 +1,6 @@
 # ============================================================
 # Washington DC Bike Share: Count Regression
-# STAT 4000 Portfolio Project 3 — R Implementation
+# STAT 4000 Portfolio Project 3  R Implementation
 # Author: Jrudani21
 # ============================================================
 # Dataset: UCI Bike Sharing Dataset
@@ -31,7 +31,7 @@ day <- day |>
 
 cat("Daily records:", nrow(day), "\n")
 cat("Hourly records:", nrow(hour), "\n")
-cat("\nDaily rentals — Mean:", round(mean(day$cnt), 1),
+cat("\nDaily rentals  Mean:", round(mean(day$cnt), 1),
     " | Variance:", round(var(day$cnt), 1), "\n")
 
 # ── 2. EDA ────────────────────────────────────────────────────
@@ -54,7 +54,7 @@ ggplot(day, aes(x = season, y = cnt, fill = season)) +
   theme(legend.position = "none")
 ggsave("figures/02_rentals_by_season.png", width = 7, height = 5)
 
-# 2c. Hourly pattern — the bimodal commute spike
+# 2c. Hourly pattern  the bimodal commute spike
 hour_avg <- hour |>
   group_by(hr, workingday) |>
   summarise(mean_cnt = mean(cnt), .groups = "drop") |>
@@ -134,7 +134,7 @@ ggplot(irr_plot, aes(x = estimate, y = reorder(term, estimate))) +
   geom_errorbarh(aes(xmin = conf.low, xmax = conf.high),
                  height = 0.3, colour = "steelblue") +
   geom_vline(xintercept = 1, linetype = "dashed", colour = "red") +
-  labs(title   = "Incidence Rate Ratios — Negative Binomial Model",
+  labs(title   = "Incidence Rate Ratios  Negative Binomial Model",
        x       = "IRR (95% CI)",
        y       = NULL,
        caption = "IRR > 1 = more rentals | IRR < 1 = fewer rentals") +
@@ -182,7 +182,7 @@ season_p <- anova_nb["season", "Pr(>Chisq)"]
 season_x2 <- anova_nb["season", "LR Chisq"]
 cat(sprintf("4. TEST STATISTIC: χ²(3) = %.3f\n", season_x2))
 cat(sprintf("5. P-VALUE: %.4e\n", season_p))
-cat("6. CONCLUSION: Reject H0 — season significantly affects rental rate.\n")
+cat("6. CONCLUSION: Reject H0  season significantly affects rental rate.\n")
 
 # ── 11. Summary ───────────────────────────────────────────────
 cat("\n===== KEY FINDINGS =====\n")
