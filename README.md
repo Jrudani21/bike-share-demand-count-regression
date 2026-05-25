@@ -1,7 +1,7 @@
 # 🚲 Washington DC Bike Share: Count Regression (Poisson → Negative Binomial)
 
 > **How do weather and calendar drive daily bike rental demand in Washington DC?**  
-> 731 days of Capital Bikeshare data modelled with Poisson and Negative Binomial GLMs — in both R and Python.
+> 731 days of Capital Bikeshare data modelled with Poisson and Negative Binomial GLMs  in both R and Python.
 
 ❗[Predicted vs Actual](figures/py_03_pred_vs_actual.png)
 
@@ -20,7 +20,7 @@
 
 ## Problem
 
-Daily bike rentals are **count data** — non-negative integers that can't be negative and tend to be right-skewed. Using ordinary linear regression would be the wrong tool. This project:
+Daily bike rentals are **count data**  non-negative integers that can't be negative and tend to be right-skewed. Using ordinary linear regression would be the wrong tool. This project:
 
 1. Confirms that a Poisson GLM is appropriate (or detects overdispersion requiring Negative Binomial)
 2. Fits both models and compares them with AIC
@@ -33,10 +33,10 @@ Daily bike rentals are **count data** — non-negative integers that can't be ne
 
 | Property | Detail |
 |---|---|
-| **Source** | [UCI Machine Learning Repository — Bike Sharing Dataset](https://archive.uci.edu/dataset/275/bike+sharing+dataset) |
+| **Source** | [UCI Machine Learning Repository  Bike Sharing Dataset](https://archive.uci.edu/dataset/275/bike+sharing+dataset) |
 | **Collector** | Fanaee-T, Hadi & Gama, João (2013) |
-| **Size** | `day.csv` — 731 rows × 16 columns; `hour.csv` — 17,379 rows × 17 columns |
-| **Target** | `cnt` — total daily rentals (casual + registered) |
+| **Size** | `day.csv`  731 rows × 16 columns; `hour.csv`  17,379 rows × 17 columns |
+| **Target** | `cnt`  total daily rentals (casual + registered) |
 | **Period** | Jan 1 2011 – Dec 31 2012, Washington DC |
 | **License** | CC BY 4.0 |
 
@@ -44,7 +44,7 @@ Daily bike rentals are **count data** — non-negative integers that can't be ne
 
 | Variable | Description |
 |---|---|
-| `cnt` | **Target** — total daily bike rentals |
+| `cnt` | **Target**  total daily bike rentals |
 | `temp` | Normalised temperature (multiply by 41 for °C) |
 | `hum` | Normalised humidity |
 | `windspeed` | Normalised wind speed |
@@ -63,7 +63,7 @@ Variance of cnt:   1,609,127
 Variance/Mean ratio:    357.2
 ```
 
-The variance is **357× the mean** — massive overdispersion. Linear regression assumes constant variance (homoskedasticity), which is violated. The response is also a count (non-negative integer), so:
+The variance is **357× the mean**  massive overdispersion. Linear regression assumes constant variance (homoskedasticity), which is violated. The response is also a count (non-negative integer), so:
 
 - **Step 1:** Try Poisson GLM (assumes mean = variance)
 - **Step 2:** Test for overdispersion (Pearson χ²/df >> 1)
@@ -116,7 +116,7 @@ The variance is **357× the mean** — massive overdispersion. Linear regression
 
 | Predictor | IRR | Interpretation |
 |---|---|---|
-| Year 2012 vs 2011 | ~1.54 | 54% more rentals — system grew |
+| Year 2012 vs 2011 | ~1.54 | 54% more rentals  system grew |
 | Fall vs Spring | ~1.35 | 35% more rentals in Fall |
 | Summer vs Spring | ~1.25 | 25% more |
 | Temperature (+1 unit) | ~2.50 | Higher temp = many more rentals |
@@ -128,7 +128,7 @@ The variance is **357× the mean** — massive overdispersion. Linear regression
 1. **α = 0.05**
 2. **H₀:** No season effect on log rental rate
 3. **Decision rule:** Reject H₀ if p-value ≤ 0.05
-4. **χ²(3)** — from Type II likelihood-ratio test
+4. **χ²(3)**  from Type II likelihood-ratio test
 5. **p < 0.001**
 6. **Conclusion:** Season significantly affects daily rental count
 
@@ -156,7 +156,7 @@ python Python/bikeshare_analysis.py
 ---
 
 ## What I'd Do Next
-- Model **hourly** demand with the 17,379-row `hour.csv` — more granular and more complex
+- Model **hourly** demand with the 17,379-row `hour.csv`  more granular and more complex
 - Add a **time series component** (Prophet or SARIMA) to capture trends over the two years
 - Try a **Random Forest** or **Gradient Boosting** regressor and compare RMSE vs the GLM
 - Build a **rental demand calculator**: input weather forecast → predict tomorrow's demand
