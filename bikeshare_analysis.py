@@ -1,6 +1,6 @@
 # ============================================================
 # Washington DC Bike Share: Count Regression
-# STAT 4000 Portfolio Project 3 — Python Implementation
+# STAT 4000 Portfolio Project 3  Python Implementation
 # Author: Jrudani21
 # ============================================================
 # Dataset: UCI Bike Sharing Dataset
@@ -42,7 +42,7 @@ day["workingday_lbl"] = day["workingday"].map(
 
 print(f"Daily records:  {len(day)}")
 print(f"Hourly records: {len(hour)}")
-print(f"\nDaily cnt  —  Mean: {day['cnt'].mean():.1f}  |  "
+print(f"\nDaily cnt    Mean: {day['cnt'].mean():.1f}  |  "
       f"Var: {day['cnt'].var():.1f}  |  "
       f"Ratio: {day['cnt'].var()/day['cnt'].mean():.1f}")
 
@@ -199,7 +199,7 @@ ax.axvline(1, color="red", linestyle="--", lw=1.5)
 ax.set_yticks(range(len(irr_sig)))
 ax.set_yticklabels(irr_sig.index, fontsize=8)
 ax.set_xlabel("Incidence Rate Ratio (95% CI)")
-ax.set_title("IRRs — Negative Binomial Model\n"
+ax.set_title("IRRs  Negative Binomial Model\n"
              "IRR > 1 = more rentals | IRR < 1 = fewer rentals")
 ax.grid(axis="x", alpha=0.3)
 plt.tight_layout()
