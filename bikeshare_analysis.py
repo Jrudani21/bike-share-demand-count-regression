@@ -139,7 +139,8 @@ nb_fit = sm.NegativeBinomial(
         day[["temp","hum","windspeed","workingday",
              "season","weathersit","yr"]],
         columns=["workingday","season","weathersit","yr"],
-        drop_first=True
+        drop_first=True,
+        dtype=float
     ))
 ).fit(disp=False)
 
