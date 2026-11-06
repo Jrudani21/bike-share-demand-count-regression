@@ -30,7 +30,7 @@ day  = pd.read_csv("data/day.csv")
 hour = pd.read_csv("data/hour.csv")
 
 # Decode factors
-season_map  = {1:"Spring", 2:"Summer", 3:"Fall", 4:"Winter"}
+season_map  = {1:"Winter", 2:"Spring", 3:"Summer", 4:"Fall"}
 weather_map = {1:"Clear", 2:"Mist", 3:"Light Rain", 4:"Heavy Rain"}
 yr_map      = {0:"2011", 1:"2012"}
 
@@ -60,7 +60,7 @@ axes[0,0].set_xlabel("Daily Rentals")
 axes[0,0].set_ylabel("Count")
 
 # Boxplot by season
-season_order = ["Spring","Summer","Fall","Winter"]
+season_order = ["Winter","Spring","Summer","Fall"]
 sns.boxplot(data=day, x="season_lbl", y="cnt",
             order=season_order, palette="Set2", ax=axes[0,1])
 axes[0,1].set_title("Daily Rentals by Season")
@@ -262,7 +262,7 @@ print("=" * 55)
 
 print("\nKey IRR Insights:")
 print("• 2012 vs 2011: ~54% more rentals (system growth)")
-print("• Fall vs Spring: most rentals in Fall")
+print("• Winter (reference season) has the fewest rentals")
 print("• Higher temperature → more rentals")
 print("• Light rain → ~30% fewer rentals vs clear sky")
 print("• Higher humidity → fewer rentals")

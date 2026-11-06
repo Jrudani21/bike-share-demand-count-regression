@@ -48,7 +48,7 @@ Daily bike rentals are **count data**  non-negative integers that can't be negat
 | `temp` | Normalised temperature (multiply by 41 for °C) |
 | `hum` | Normalised humidity |
 | `windspeed` | Normalised wind speed |
-| `season` | 1=Spring, 2=Summer, 3=Fall, 4=Winter |
+| `season` | 1=Winter, 2=Spring, 3=Summer, 4=Fall |
 | `weathersit` | 1=Clear, 2=Mist, 3=Light Rain, 4=Heavy Rain |
 | `workingday` | 1=Working day, 0=Weekend/holiday |
 | `yr` | 0=2011, 1=2012 |
@@ -59,11 +59,11 @@ Daily bike rentals are **count data**  non-negative integers that can't be negat
 
 ```
 Mean of cnt:          4504.3
-Variance of cnt:   1,609,127
-Variance/Mean ratio:    357.2
+Variance of cnt:   3,752,788
+Variance/Mean ratio:    833.2
 ```
 
-The variance is **357× the mean**  massive overdispersion. Linear regression assumes constant variance (homoskedasticity), which is violated. The response is also a count (non-negative integer), so:
+The variance is **833× the mean**  massive overdispersion. Linear regression assumes constant variance (homoskedasticity), which is violated. The response is also a count (non-negative integer), so:
 
 - **Step 1:** Try Poisson GLM (assumes mean = variance)
 - **Step 2:** Test for overdispersion (Pearson χ²/df >> 1)
@@ -100,8 +100,8 @@ The variance is **357× the mean**  massive overdispersion. Linear regression as
 | | Value |
 |---|---|
 | Mean (cnt) | 4,504 |
-| Variance (cnt) | 1,609,127 |
-| Variance/Mean | **357** → strongly overdispersed |
+| Variance (cnt) | 3,752,788 |
+| Variance/Mean | **833** → strongly overdispersed |
 | Pearson χ²/df (Poisson) | >> 1 |
 
 ### Model Comparison

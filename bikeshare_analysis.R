@@ -23,7 +23,7 @@ hour <- read.csv("data/hour.csv")
 # Decode factor levels
 day <- day |>
   mutate(
-    season     = factor(season,     labels = c("Spring","Summer","Fall","Winter")),
+    season     = factor(season,     labels = c("Winter","Spring","Summer","Fall")),
     weathersit = factor(weathersit, labels = c("Clear","Mist","Light Rain","Heavy Rain")),
     workingday = factor(workingday, labels = c("Weekend/Holiday","Working Day")),
     yr         = factor(yr,         labels = c("2011","2012"))
@@ -173,7 +173,7 @@ dev.off()
 # ── 10. 6-Step Hypothesis Test: Season Effect ────────────────
 cat("\n===== 6-STEP HYPOTHESIS TEST: Season Effect =====\n")
 cat("1. LEVEL OF SIGNIFICANCE: α = 0.05\n")
-cat("2. H0: βSummer = βFall = βWinter = 0 (no season effect on log rental rate)\n")
+cat("2. H0: βSpring = βSummer = βFall = 0 (no season effect on log rental rate)\n")
 cat("   HA: At least one βseason ≠ 0\n")
 cat("3. DECISION RULE: Reject H0 if p-value ≤ α\n")
 anova_nb <- Anova(nb_model, type = "II")
@@ -192,7 +192,7 @@ cat(sprintf("Poisson AIC  = %.1f\n", AIC(poisson_model)))
 cat(sprintf("Neg-Binom AIC = %.1f  (better)\n", AIC(nb_model)))
 cat("\nTop IRR insights:\n")
 cat("• 2012 vs 2011: ~54% more rentals (growth trend)\n")
-cat("• Fall vs Spring: ~35% more rentals\n")
+cat("• Winter (reference season) has the fewest rentals\n")
 cat("• Each +1 unit temp (~41°C): large positive effect\n")
 cat("• Light rain: ~30% fewer rentals vs clear\n")
 cat("• High humidity: reduces rentals\n")
