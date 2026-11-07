@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Janak Rudani. All rights reserved.
+# Provenance: Jrudani21/bike-share-demand-count-regression/bikeshare_analysis.py 15d6a2a2a4893b60
 # ============================================================
 # Washington DC Bike Share: Count Regression
 # STAT 4000 Portfolio Project 3  Python Implementation
