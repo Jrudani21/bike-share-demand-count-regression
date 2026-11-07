@@ -3,7 +3,7 @@
 > **How do weather and calendar drive daily bike rental demand in Washington DC?**  
 > 731 days of Capital Bikeshare data modelled with Poisson and Negative Binomial GLMs  in both R and Python.
 
-❗[Predicted vs Actual](figures/py_03_pred_vs_actual.png)
+Plots (including predicted vs actual) are written to `figures/` when you run `bikeshare_analysis.py`; they are not committed.
 
 ---
 
@@ -132,9 +132,11 @@ Values come from the Python run (`bikeshare_analysis.py`, statsmodels, NB disper
 1. **α = 0.05**
 2. **H₀:** No season effect on log rental rate
 3. **Decision rule:** Reject H₀ if p-value ≤ 0.05
-4. **χ²(3)**  from Type II likelihood-ratio test
-5. **p < 0.001**
+4. **χ²(3) = 323.4** from a likelihood-ratio test (NB GLM with and without season, α fixed at 0.0617 from the full model; re-run in Python on `day.csv`)
+5. **p < 0.001** (about 9e-70)
 6. **Conclusion:** Season significantly affects daily rental count
+
+The R script was not re-run for this figure; its Type II test may differ slightly.
 
 ---
 
