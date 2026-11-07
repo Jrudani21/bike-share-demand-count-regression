@@ -26,7 +26,7 @@ hour <- read.csv("data/hour.csv")
 day <- day |>
   mutate(
     season     = factor(season,     labels = c("Winter","Spring","Summer","Fall")),
-    weathersit = factor(weathersit, labels = c("Clear","Mist","Light Rain","Heavy Rain")),
+    weathersit = factor(weathersit, levels = 1:3, labels = c("Clear","Mist","Light Rain")),  # day.csv has no code 4
     workingday = factor(workingday, labels = c("Weekend/Holiday","Working Day")),
     yr         = factor(yr,         labels = c("2011","2012"))
   )
@@ -121,7 +121,7 @@ cat("Lower AIC = better fit → Negative Binomial wins\n")
 irr_table <- tidy(nb_model, exponentiate = TRUE, conf.int = TRUE) |>
   filter(term != "(Intercept)") |>
   arrange(desc(estimate)) |>
-  select(term, estimate, conf.low, conf.high, p.value)
+  dplyr::select(term, estimate, conf.low, conf.high, p.value)
 
 cat("\n===== INCIDENCE RATE RATIOS (Negative Binomial) =====\n")
 print(irr_table, n = 20)
@@ -196,5 +196,5 @@ cat("\nTop IRR insights:\n")
 cat("• 2012 vs 2011: ~54% more rentals (growth trend)\n")
 cat("• Winter (reference season) has the fewest rentals\n")
 cat("• Each +1 unit temp (~41°C): large positive effect\n")
-cat("• Light rain: ~30% fewer rentals vs clear\n")
+cat("• Light rain: ~51% fewer rentals vs clear (IRR 0.49)\n")
 cat("• High humidity: reduces rentals\n")

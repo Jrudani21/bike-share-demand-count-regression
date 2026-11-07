@@ -108,13 +108,13 @@ The variance is **833× the mean**  massive overdispersion. Linear regression as
 | Model | AIC |
 |---|---|
 | Poisson GLM | 142,141 |
-| **Negative Binomial** | **12,199** ✅ |
+| **Negative Binomial** | **12,199** (Python); 12,201 (R `glm.nb`) ✅ |
 
 → Negative Binomial is substantially better (lower AIC).
 
 ### Incidence Rate Ratios (Negative Binomial)
 
-Values come from the Python run (`bikeshare_analysis.py`, statsmodels, NB dispersion alpha = 0.0617). The baseline season is **Winter** (season 1). The R script was not re-run, so no R numbers are reported here.
+The R script (`bikeshare_analysis.R`, re-run on R 4.6) reproduces these ratios to rounding. Values below come from the Python run (`bikeshare_analysis.py`, statsmodels, NB dispersion alpha = 0.0617). The baseline season is **Winter** (season 1). The R script was not re-run, so no R numbers are reported here.
 
 | Predictor | IRR | Interpretation |
 |---|---|---|
